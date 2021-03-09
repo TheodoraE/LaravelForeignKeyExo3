@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $store = new Profile;
+        $store->name = $request->name;
+        $store->age = $request->age;
+        $store->phone = $request->phone;
+        $store->save();
+
+        $store1 = new User;
+        $store1->email = $request->email;
+        $store1->nickname = $request->nickname;
+        $store1->profile_id = $store->id;
+
+        $store1->save();
+	    return redirect()->back();
     }
 
     /**

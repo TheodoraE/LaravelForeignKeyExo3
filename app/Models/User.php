@@ -10,6 +10,6 @@ class User extends Model
     use HasFactory;
     public function profiles()
     {
-        return $this->belongsTo(Profile::class, 'profiles_id');
+        return $this->belongsTo(Profile::class, 'profile_id');
     }
 }
