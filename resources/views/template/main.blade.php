@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
-    
 
+    <section class="container mt-5">
+        @yield('content')
+    </section>
+    
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

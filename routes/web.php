@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $profiles = Profile::all();
+    $users = User::all();
+    return view('welcome', compact('profiles', 'users'));
 });
+
+Route::resource('users', UserController::class);
